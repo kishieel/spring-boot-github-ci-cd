@@ -12,6 +12,7 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
+          cache: maven
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots package
       - name: Send artifact to remote server
@@ -20,7 +21,7 @@ jobs:
           HOST: ${{ secrets.HOST }}
           PORT: ${{ secrets.PORT }}
           USERNAME: ${{ secrets.USERNAME }}
-          PASSWORD: ${{ secrets.PASSWORD }}
+          KEY: ${{ secrets.SSH_KEY }}
         with:
           source : "./target/demo-0.0.1-SNAPSHOT.jar"
           target: "~/app.jar"
