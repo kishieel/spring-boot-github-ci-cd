@@ -17,7 +17,7 @@ public class DemoApplication {
     public static class PingController {
         @GetMapping("/ping")
         public ResponseEntity<?> ping() {
-            return new ResponseEntity<>("pong", HttpStatus.OK);
+            return new ResponseEntity<>("test", HttpStatus.OK);
         }
     }
 }
